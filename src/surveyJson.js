@@ -1,5 +1,5 @@
 export const surveyJson = {
-  "title": "Workday evaluation",
+  "title": "Good Day",
   "logo": "https://dkckbwr4t7ug6.cloudfront.net/assets/application/shared/meta_data/default_og_image-2383bf42e9b1c5a9d4e2b3f7ed8a90a70db9e39844273f9839dfdd0549be9647.png",
   "logoPosition": "right",
   "pages": [
@@ -61,23 +61,23 @@ export const surveyJson = {
       "isRequired": true,
       "choices": [
        {
-        "value": "Item 1",
+        "value": "AC",
         "text": "A.C."
        },
        {
-        "value": "Item 2",
+        "value": "BH",
         "text": "B.H."
        },
        {
-        "value": "Item 3",
+        "value": "FC",
         "text": "F.C."
        },
        {
-        "value": "Item 4",
+        "value": "JL",
         "text": "J.L."
        },
        {
-        "value": "Item 5",
+        "value": "ML",
         "text": "M.L."
        }
       ]
@@ -104,7 +104,8 @@ export const surveyJson = {
      {
       "type": "boolean",
       "name": "didYouHelpOtherPeople",
-      "title": "Did you help other people?"
+      "title": "Did you help other people?",
+      "isRequired": true
      },
      {
       "type": "boolean",
