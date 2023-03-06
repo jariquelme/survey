@@ -47,6 +47,17 @@ function App() {
     setProfile(null);
 };
 
+const grantAccess = (user) => {
+  const email = user.data.email;
+  const allowedDomain = 'sofatutor.com';
+
+  if (email.endsWith(`@${allowedDomain}`)) {
+      setProfile(user.data);
+  } else {
+    alert(`Sign-in failed. Please use a ${allowedDomain} email address.`);
+  }
+}
+
   const alertResults = useCallback((sender) => {
     const results = sender.data;
     results['createdAt']= new Date().toUTCString();
@@ -57,7 +68,6 @@ function App() {
 
   useEffect(
     () => {
-      console.log("entro", user)
       if (user) {
         axios
           .get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`, {
@@ -67,7 +77,7 @@ function App() {
             }
           })
           .then((res) => {
-              setProfile(res.data);
+              grantAccess(res);
           })
           .catch((err) => console.log(err));
       }
@@ -80,7 +90,7 @@ function App() {
     <div>
         {profile ? (
             <div>
-              <img src={profile.picture} />
+              Welcome {profile.name}
               <br />
               <br />
               <button onClick={logOut}>Log out</button>
@@ -91,7 +101,6 @@ function App() {
         )}
     </div>
 );
-  return <Survey model={survey} />;
 }
 
 export default App;
